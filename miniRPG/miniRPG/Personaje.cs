@@ -27,7 +27,7 @@ namespace miniRPG
         string[] apodos = new String[5] { "Br.", "Paul", "Mar", "Lorny", "Army" };
 
         //Datos
-        private TipoDePersonaje tipo;//= //new String[5] { "Enano", "Elfo", "Mago", "Guerrero", "Arquero" };
+        private TipoDePersonaje tipo;
         private string nombre;
         private string apodo;
         private DateTime fechaNac;
@@ -70,11 +70,11 @@ namespace miniRPG
             //Edad sin compensacion por mes
             pj.edad = DateTime.Now.Year - pj.fechaNac.Year;
             pj.salud = 100;
-            pj.velocidad = r.Next((int)ValoresMaximos.velocidadMax);
-            pj.destreza = r.Next((int)ValoresMaximos.destrezaMax);
-            pj.fuerza = r.Next((int)ValoresMaximos.fuerzaMax);
-            pj.nivel = r.Next((int)ValoresMaximos.nivelMax);
-            pj.armadura = r.Next((int)ValoresMaximos.armaduraMax);
+            pj.velocidad = r.Next((int)ValoresMaximos.velocidadMax) + 1;
+            pj.destreza = r.Next((int)ValoresMaximos.destrezaMax) + 1;
+            pj.fuerza = r.Next((int)ValoresMaximos.fuerzaMax) + 1;
+            pj.nivel = r.Next((int)ValoresMaximos.nivelMax) + 1;
+            pj.armadura = r.Next((int)ValoresMaximos.armaduraMax) + 1;
 
             return pj;
         }
