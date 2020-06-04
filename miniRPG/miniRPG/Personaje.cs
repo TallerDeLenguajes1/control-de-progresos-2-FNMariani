@@ -4,13 +4,14 @@ using System.Text;
 
 namespace miniRPG
 {
-    enum TipoDePersonaje
+    public enum TipoDePersonaje
     {
-        Enano,
-        Elfo,
-        Mago,
+        Arquero,
+        Barbaro,
+        Bardo,
         Guerrero,
-        Arquero
+        Mago,
+        Orco
     }
     enum ValoresMaximos
     {
@@ -21,7 +22,7 @@ namespace miniRPG
         armaduraMax = 10
     }
 
-    class Personaje
+    public class Personaje
     {
         string[] nombres = new String[5] { "Brock", "Paul", "Marshall", "Lorna", "Armand" };
         string[] apodos = new String[5] { "Br.", "Paul", "Mar", "Lorny", "Army" };
@@ -43,7 +44,7 @@ namespace miniRPG
 
         public Personaje(){}
 
-        internal TipoDePersonaje Tipo { get => tipo; set => tipo = value; }
+        public TipoDePersonaje Tipo { get => tipo; set => tipo = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apodo { get => apodo; set => apodo = value; }
         public DateTime FechaNac { get => fechaNac; set => fechaNac = value; }
@@ -63,7 +64,7 @@ namespace miniRPG
             Array values = Enum.GetValues(typeof(TipoDePersonaje));
 
             pj.Tipo = (TipoDePersonaje)values.GetValue(r.Next(values.Length));
-            int rNumber = r.Next(values.Length);
+            int rNumber = r.Next(0, (values.Length-1));
             pj.nombre = nombres[rNumber];
             pj.apodo = apodos[rNumber];
             pj.fechaNac = new DateTime(DateTime.Now.Year - 300, DateTime.Now.Month, DateTime.Now.Day).AddDays(r.Next(365 * 300));
